@@ -29,6 +29,7 @@ jobs:
       uses: golangci/golangci-lint-action@v3
       with:
           version: latest
+          args: --out-format=json
           skip-build-cache: true
           skip-pkg-cache: true
       
