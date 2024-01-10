@@ -31,7 +31,5 @@ jobs:
           version: latest
           skip-build-cache: true
           skip-pkg-cache: true
-          args: --timeout 5m --out-format=github-actions > ./op.txt
+          args: --timeout 5m --out-format=github-actions > ./op.txt | cat ./op.txt
 
-    - name: Print Golangci-lint Output
-      run: cat ./op.txt
