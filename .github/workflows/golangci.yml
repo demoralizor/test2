@@ -1,4 +1,8 @@
-name: Golangci Lint Check
+name: Static Checks and Linting
+
+concurrency:
+  group: static-${{ github.head_ref }}
+  cancel-in-progress: true
 
 on:
   push:
@@ -22,10 +26,10 @@ jobs:
         cache: true
     
     - name: lint
-      uses: golangci/golangci-lint-action@v3.7.0
+      uses: golangci/golangci-lint-action@v3
       with:
           version: latest
+          args: --new-from-rev=HEAD~1
           skip-build-cache: true
           skip-pkg-cache: true
       
-
