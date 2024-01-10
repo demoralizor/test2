@@ -29,8 +29,9 @@ jobs:
       uses: golangci/golangci-lint-action@v3
       with:
           version: latest
-          args: --out-format=json
           skip-build-cache: true
           skip-pkg-cache: true
-      
+          args: --timeout 5m --out-format=github-actions -o ./op.txt
 
+    - name: Print Golangci-lint Output
+      run: cat ./op.txt
